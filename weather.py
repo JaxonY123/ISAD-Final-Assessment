@@ -9,7 +9,31 @@ def getSeason(country, month):
     """
     season = ""
     if country == "Australia":
-        pass
+        variation = input("Would you like the Meteorological season or the Noongar season? ")
+        if variation == "Meteorological":
+            if month == "December" or month == "January" or month == "February":
+                season = "Summer"
+            elif month == "March" or month == "April" or month == "May":
+                season = "Autumn"
+            elif month == "June" or month == "July" or month == "August":
+                season = "Winter"
+            else:
+                season - "Spring"
+        elif variation == "Noongar":
+            if month == "December" or month == "January":
+                season = "Birak"
+            elif month == "February" or month == "March":
+                season = "Bunuru"
+            elif month == "April" or month == "May":
+                season = "Djeran"
+            elif month == "June" or month == "July":
+                season = "Makuru"
+            elif month == "August" or month == "September":
+                season = "Dijiba"
+            else:
+                season = "Kambarang"
+                
+            
     elif country == "Spain" or country == "Japan":
         if month == "December" or month == "January" or month == "February":
             season = "Winter"
@@ -40,6 +64,12 @@ def getSeason(country, month):
     
     print(f"\nDuring {month} in {country} the season is {season}.")
 
+
+
+
+
+
+
 if __name__ == "__main__":
     # Valid countries and months
     countries = ["Australia", "Spain", "Japan", "Mauritius", "Malaysia",
@@ -55,10 +85,13 @@ if __name__ == "__main__":
     while country not in countries:
         country = input("\nInvalid Selection. Please select a country from the list above: ")
     
+    # Select month, displays list of months if invalid. 
     month = input("Enter a month: ")
     while month not in months:
         print("\nJanuary | February | March | April | May | June | July \n August | September | October | November | December\n")
         month = input("Invalid Selection. Please select a month from the list above: ")
+    
+    
     getSeason(country, month)
 
 
