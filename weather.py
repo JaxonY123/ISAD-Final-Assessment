@@ -38,7 +38,7 @@ def getSeason(country, month):
         else:
             season = "Inter-monsoon"
     
-    print(season)
+    print(f"\nDuring {month} in {country} the season is {season}.")
 
 if __name__ == "__main__":
     # Valid countries and months
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     while month not in months:
         print("\nJanuary | February | March | April | May | June | July \n August | September | October | November | December\n")
         month = input("Invalid Selection. Please select a month from the list above: ")
-    getSeason(country, month)    
+    getSeason(country, month)
 
 
     
