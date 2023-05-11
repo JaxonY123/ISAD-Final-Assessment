@@ -37,6 +37,7 @@ def getSeason(country, month):
             season = "Southeast Monsoon"
         else:
             season = "Inter-monsoon"
+    
     print(season)
 
 if __name__ == "__main__":
@@ -51,14 +52,14 @@ if __name__ == "__main__":
     print("Australia | Spain | Japan | Mauritius | Malaysia | Sri Lanka")
     print("\n============================================================\n")
     country = input("Select a country from the list above: ")
-    while country_choice not in countries:
+    while country not in countries:
         country = input("\nInvalid Selection. Please select a country from the list above: ")
     
     month = input("Enter a month: ")
     while month not in months:
         print("\nJanuary | February | March | April | May | June | July \n August | September | October | November | December\n")
         month = input("Invalid Selection. Please select a month from the list above: ")
-    
+    getSeason(country, month)    
 
 
     
