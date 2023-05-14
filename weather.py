@@ -13,41 +13,41 @@ def getSeason(country, month):
     if country == "Australia":
         variation = input("Would you like the Meteorological season or the Noongar season? ")
         if variation == "Meteorological":
-            if month == "December" or month == "January" or month == "February":
+            if month in ["December", "January", "February"]:
                 season = "Summer"
                 image = img.imread("summer.png")
                 plt.imshow(image)
-            elif month == "March" or month == "April" or month == "May":
+            elif month in ["March", "April", "May"]:
                 season = "Autumn"
                 image = img.imread("autumn.png")
                 plt.imshow(image)
-            elif month == "June" or month == "July" or month == "August":
+            elif month in ["June", "July", "August"]:
                 season = "Winter"
                 image = img.imread("winter.png")
                 plt.imshow(image)
             else:
-                season - "Spring"
+                season = "Spring"
                 image = img.imread("spring.png")
                 plt.imshow(image)
 
         elif variation == "Noongar":
-            if month == "December" or month == "January":
+            if month in ["December", "January"]:
                 season = "Birak"
                 image = img.imread("birak.png")
                 plt.imshow(image)
-            elif month == "February" or month == "March":
+            elif month in ["February", "March"]:
                 season = "Bunuru"
                 image = img.imread("bunuru.png")
                 plt.imshow(image)
-            elif month == "April" or month == "May":
+            elif month in ["April", "May"]:
                 season = "Djeran"
                 image = img.imread("djeran.png")
                 plt.imshow(image)
-            elif month == "June" or month == "July":
+            elif month in ["June", "July"]:
                 season = "Makuru"
                 image = img.imread("makuru.png")
                 plt.imshow(image)
-            elif month == "August" or month == "September":
+            elif month in ["August", "September"]:
                 season = "Dijiba"
                 image = img.imread("djilba.png")
                 plt.imshow(image)
@@ -58,15 +58,15 @@ def getSeason(country, month):
                 
             
     elif country == "Spain" or country == "Japan":
-        if month == "December" or month == "January" or month == "February":
+        if month in ["December", "January", "February"]:
             season = "Winter"
             image = img.imread("winter.png")
             plt.imshow(image)
-        elif month == "March" or month == "April" or month == "May":
+        elif month in ["March", "April", "May"]:
             season = "Spring"
             image = img.imread("spring.png")
             plt.imshow(image)
-        elif month == "June" or month == "July" or month == "August":
+        elif month in ["June", "July", "August"]:
             season = "Summer"
             image = img.imread("summer.png")
             plt.imshow(image)
@@ -80,7 +80,7 @@ def getSeason(country, month):
             season = "Autumn"
             image = img.imread("autumn.png")
             plt.imshow(image)
-        elif month == "June" or month == "July" or month == "August" or month == "September":
+        elif month in ["June", "July", "August", "September"]:
             season = "Winter"
             image = img.imread("winter.png")
             plt.imshow(image)
@@ -94,11 +94,11 @@ def getSeason(country, month):
             plt.imshow(image)
 
     elif country == "Malaysia" or country == "Sri Lanka":
-        if month == "December" or month == "January" or month == "February":
+        if month in ["December", "January", "February"]:
             season = "Northeast Monsoon"
             image = img.imread("monsoon.png")
             plt.imshow(image)
-        elif month == "May" or month == "September":
+        elif month in ["May", "September"]:
             season = "Southeast Monsoon"
             image = img.imread("monsoon.png")
             plt.imshow(image)
