@@ -55,7 +55,7 @@ def getSeason(country, month):
                 plt.imshow(image)
                 
             
-    elif country == "Spain" or country == "Japan":
+    elif country in ["Spain", "Japan"]:
         if month in ["December", "January", "February"]:
             season = "Winter"
             image = img.imread("winter.png")
@@ -91,7 +91,7 @@ def getSeason(country, month):
             image = img.imread("summer.png")
             plt.imshow(image)
 
-    elif country == "Malaysia" or country == "Sri Lanka":
+    elif country in ["Malaysia", "Sri Lanka"]:
         if month in ["December", "January", "February"]:
             season = "Northeast Monsoon"
             image = img.imread("monsoon.png")
@@ -126,20 +126,20 @@ if __name__ == "__main__":
     print("\n====================== SEASON FINDER =======================\n")
     print("Australia | Spain | Japan | Mauritius | Malaysia | Sri Lanka")
     print("\n============================================================\n")
-    country = input("Select a country from the list above: ")
+    country = input("Select a country from the list above: ").title()
     while country not in countries:
-        country = input("\nInvalid Selection. Please select a country from the list above: ")
+        country = input("\nInvalid Selection. Please select a country from the list above: ").title()
     
     # Select month, displays list of months if invalid. 
-    month = input("Enter a month: ")
+    month = input("Enter a month: ").title()
     while month not in months:
         print("\nJanuary | February | March | April | May | June | July \n August | September | October | November | December\n")
-        month = input("Invalid Selection. Please select a month from the list above: ")
+        month = input("Invalid Selection. Please select a month from the list above: ").title()
     
     if country == "Australia":
-        variation = input("Would you like the Meteorological season or the Noongar season? (M/N): ")
+        variation = input("Would you like the Meteorological season or the Noongar season? (M/N): ").upper()
         while variation not in ["M", "N"]:
-            variation = input("Invalid selection. Select Meteorological season or Noongar season (M/N): ")
+            variation = input("Invalid selection. Select Meteorological season or Noongar season (M/N): ").upper()
     
     
     getSeason(country, month)
