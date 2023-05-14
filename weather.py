@@ -6,13 +6,11 @@ import matplotlib.image as img
 
 def getSeason(country, month):
     """
-    Displays the name and a graphic of the season in a given country during
+    Displays the name and an image of the season in a given country during
     a given month.
     """
-    season = ""
     if country == "Australia":
-        variation = input("Would you like the Meteorological season or the Noongar season? ")
-        if variation == "Meteorological":
+        if variation == "M":
             if month in ["December", "January", "February"]:
                 season = "Summer"
                 image = img.imread("summer.png")
@@ -30,7 +28,7 @@ def getSeason(country, month):
                 image = img.imread("spring.png")
                 plt.imshow(image)
 
-        elif variation == "Noongar":
+        elif variation == "N":
             if month in ["December", "January"]:
                 season = "Birak"
                 image = img.imread("birak.png")
@@ -137,6 +135,11 @@ if __name__ == "__main__":
     while month not in months:
         print("\nJanuary | February | March | April | May | June | July \n August | September | October | November | December\n")
         month = input("Invalid Selection. Please select a month from the list above: ")
+    
+    if country == "Australia":
+        variation = input("Would you like the Meteorological season or the Noongar season? (M/N): ")
+        while variation not in ["M", "N"]:
+            variation = input("Invalid selection. Select Meteorological season or Noongar season (M/N): ")
     
     
     getSeason(country, month)
