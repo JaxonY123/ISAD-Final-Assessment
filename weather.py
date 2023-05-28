@@ -130,6 +130,31 @@ def getSeason(country, month):
     plt.axis('off')
     plt.show()
 
+def findTemp(city, time, temp):
+    avgTemps = {
+            "Perth": {
+                "9am": 18.2,
+                "3pm": 23.0
+                },
+            "Adelaide": {
+                "9am": 16.5,
+                "3pm": 21.0
+                }
+            }
+    avgTemp = avgTemps[city][time]
+    tempDiff = temp - avgTemp
+
+    if temp < avgTemp:
+        word = "below"
+    elif temp > avgTemp:
+        word = "above"
+
+    if abs(tempDiff) > 5:
+        print(f"\nThe temperature in {city} at {time} is {abs(tempDiff)} {word} the average temperature ({avgTemp}°C).")
+    elif 0 < abs(tempDiff) < 5:
+        print(f"\nThe temperature in {city} at {time} is {word} the average temperature ({avgTemp}°C).")
+    else:
+        print(f"\nThe temperature in {city} at {time} is equal to the average temperature ({avgTemp}°C).")
 
 
 if __name__ == "__main__":
