@@ -132,21 +132,15 @@ def getSeason(country, month):
 
 
 
-
-
-
-
 if __name__ == "__main__":
-    # Valid countries and months
     countries = ["Australia", "Spain", "Japan", "Mauritius", "Malaysia",
                  "Sri Lanka"]
     months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"]
     
-    # Select country from given list
-    print("\n====================== SEASON FINDER =======================\n")
-    print("Australia | Spain | Japan | Mauritius | Malaysia | Sri Lanka")
-    print("\n============================================================\n")
+    print("\n=========================== SEASON FINDER ============================\n")
+    print("Australia | Spain | Japan | Mauritius | Malaysia | Sri Lanka".center(70))
+    print("\n======================================================================\n")
    
     country = inputCheck("Select a country from the list above: ", countries) 
     month = inputCheck("Enter a month: ", months) 
