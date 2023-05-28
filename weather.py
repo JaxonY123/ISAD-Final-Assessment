@@ -18,6 +18,15 @@ def timeCheck(message, options):
             return inputted
         print("Invalid selection. Please enter a valid time.")
 
+def tempCheck(temp):
+    while True:
+        inputted = input(temp)
+        try:
+            temperature = float(inputted)
+            return temperature
+        except ValueError:
+            print("Invalid temperature. Please enter a valid number.")
+
 def getSeason(country, month):
     """
     Displays the name and an image of the season in a given country during
@@ -137,7 +146,7 @@ def getSeason(country, month):
     plt.axis('off')
     plt.show()
 
-def findTemp(city, time, temp):
+def findTemp(city,time,temp):
     avgTemps = {
             "Perth": {
                 "9am": 18.2,
@@ -167,7 +176,7 @@ def findTemp(city, time, temp):
 if __name__ == "__main__":
     choice = inputCheck("Would you like to find the season of a country during a certain month, or compare the temperature of a city with it's average temperature? (S/T): ", ["S","T"])
     
-    if choice == "S"
+    if choice == "S":
         countries = ["Australia", "Spain", "Japan", "Mauritius", "Malaysia",
                  "Sri Lanka"]
         months = ["January", "February", "March", "April", "May", "June", "July",
@@ -192,7 +201,9 @@ if __name__ == "__main__":
 
         city = inputCheck("Select a city from the list above: ", cities)
         time = timeCheck("Select a time (9am or 3pm): ", times) 
+        temp = tempCheck("Enter the temperature: ")
 
+        findTemp(city,time,temp)
 
     
 
