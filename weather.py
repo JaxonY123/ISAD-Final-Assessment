@@ -158,19 +158,33 @@ def findTemp(city, time, temp):
 
 
 if __name__ == "__main__":
-    countries = ["Australia", "Spain", "Japan", "Mauritius", "Malaysia",
+    choice = inputCheck("Would you like to find the season of a country during a certain month, or compare the temperature of a city with it's average temperature? (S/T): ", ["S","T"])
+    
+    if choice == "S"
+        countries = ["Australia", "Spain", "Japan", "Mauritius", "Malaysia",
                  "Sri Lanka"]
-    months = ["January", "February", "March", "April", "May", "June", "July",
+        months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"]
     
-    print("\n=========================== SEASON FINDER ============================\n")
-    print("Australia | Spain | Japan | Mauritius | Malaysia | Sri Lanka".center(70))
-    print("\n======================================================================\n")
+        print("\n=========================== SEASON FINDER ============================\n")
+        print("Australia | Spain | Japan | Mauritius | Malaysia | Sri Lanka".center(70))
+        print("\n======================================================================\n")
    
-    country = inputCheck("Select a country from the list above: ", countries) 
-    month = inputCheck("Enter a month: ", months) 
+        country = inputCheck("Select a country from the list above: ", countries) 
+        month = inputCheck("Enter a month: ", months) 
     
-    getSeason(country, month)
+        getSeason(country, month)
+    
+    elif choice == "T":
+        cities = ["Perth", "Adelaide"]
+        times = ["9am", "3pm"]
+        
+        print("\n====================== TEMPERATURE COMPARISON ========================\n")
+        print("Perth | Adelaide".center(70))
+        print("\n======================================================================\n")
+
+        city = inputCheck("Select a city from the list above: ", cities)
+        
 
 
     
