@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 import matplotlib.image as img
 
 def inputCheck(message, options):
+    """
+    Checks if user input for country, month, variation, choice, and city are valid (one of the options in a list).
+    If not, user is prompted to select a valid option.
+    """
     while True:
         inputted = input(message).title()
         if inputted in options:
@@ -12,6 +16,10 @@ def inputCheck(message, options):
         print("Invalid selection. Please enter a valid option.")
 
 def timeCheck(message, options):
+    """
+    Checks if user input for time is either 9am or 3pm.
+    If not, user is prompted to enter a valid time.
+    """
     while True:
         inputted = input(message)
         if inputted in options:
@@ -19,6 +27,10 @@ def timeCheck(message, options):
         print("Invalid selection. Please enter a valid time.")
 
 def tempCheck(temp):
+    """
+    Checks if user input for temperature is a valid number.
+    If not, user is prompted to enter a valid number.
+    """
     while True:
         inputted = input(temp)
         try:
@@ -30,7 +42,8 @@ def tempCheck(temp):
 def getSeason(country, month):
     """
     Displays the name and an image of the season in a given country during
-    a given month.
+    a given month from user input by using a dictionary.
+    If the country is Australia, either the meteorological or Noongar season is displayed based on user input. 
     """
     seasonDict = {
         "Australia": {
@@ -147,6 +160,11 @@ def getSeason(country, month):
     plt.show()
 
 def findTemp(city,time,temp):
+    """
+    Compares a user inputted temperature with the average temperature 
+    of a city at either 9am or 3pm using a dictionary.
+    If the difference in temperature is greater than 5, the value of the difference is shown.
+    """
     avgTemps = {
             "Perth": {
                 "9am": 18.2,
@@ -174,6 +192,7 @@ def findTemp(city,time,temp):
 
 
 if __name__ == "__main__":
+    
     choice = inputCheck("Would you like to find the season of a country during a certain month, or compare the temperature of a city with it's average temperature? (S/T): ", ["S","T"])
     
     if choice == "S":
