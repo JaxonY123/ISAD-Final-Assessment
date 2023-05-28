@@ -16,7 +16,7 @@ def getSeason(country, month):
     Displays the name and an image of the season in a given country during
     a given month.
     """
-    season_dict = {
+    seasonDict = {
         "Australia": {
             "M": {
                 "December": ["Summer", "summer.png"],
@@ -118,8 +118,14 @@ def getSeason(country, month):
                 "November": ("Inter-monsoon", "inter-monsoon.png"),
             }
         }
-            
-    
+    if country == "Australia":
+        variation = inputCheck("Would you like the Meteorological season or the Noongar season? (M/N): ", ["M", "N"])
+        season, image = seasonDict[country][variation].get(month)
+    else:
+        season, image = seasonDict[country].get(month)
+
+    image = img.imread(image)
+    plt.imshow(image)
     print(f"\nDuring {month} in {country} the season is {season}.")
     plt.axis('off')
     plt.show()
@@ -143,13 +149,7 @@ if __name__ == "__main__":
     print("\n============================================================\n")
    
     country = inputCheck("Select a country from the list above: ", countries) 
-    month = inputCheck("Enter a month: ", months)
-    
-    if country == "Australia":
-        variation = input("Would you like the Meteorological season or the Noongar season? (M/N): ").upper()
-        while variation not in ["M", "N"]:
-            variation = input("Invalid selection. Select Meteorological season or Noongar season (M/N): ").upper()
-    
+    month = inputCheck("Enter a month: ", months) 
     
     getSeason(country, month)
 
