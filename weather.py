@@ -9,101 +9,109 @@ def getSeason(country, month):
     Displays the name and an image of the season in a given country during
     a given month.
     """
-    if country == "Australia":
-        if variation == "M":
-            if month in ["December", "January", "February"]:
-                season = "Summer"
-                image = img.imread("summer.png")
-                plt.imshow(image)
-            elif month in ["March", "April", "May"]:
-                season = "Autumn"
-                image = img.imread("autumn.png")
-                plt.imshow(image)
-            elif month in ["June", "July", "August"]:
-                season = "Winter"
-                image = img.imread("winter.png")
-                plt.imshow(image)
-            else:
-                season = "Spring"
-                image = img.imread("spring.png")
-                plt.imshow(image)
-
-        elif variation == "N":
-            if month in ["December", "January"]:
-                season = "Birak"
-                image = img.imread("birak.png")
-                plt.imshow(image)
-            elif month in ["February", "March"]:
-                season = "Bunuru"
-                image = img.imread("bunuru.png")
-                plt.imshow(image)
-            elif month in ["April", "May"]:
-                season = "Djeran"
-                image = img.imread("djeran.png")
-                plt.imshow(image)
-            elif month in ["June", "July"]:
-                season = "Makuru"
-                image = img.imread("makuru.png")
-                plt.imshow(image)
-            elif month in ["August", "September"]:
-                season = "Dijiba"
-                image = img.imread("djilba.png")
-                plt.imshow(image)
-            else:
-                season = "Kambarang"
-                image = img.imread("kambarang.png")
-                plt.imshow(image)
-                
+    season_dict = {
+        "Australia": {
+            "M": {
+                "December": ["Summer", "summer.png"],
+                "January": ["Summer", "summer.png"],
+                "February": ["Summer", "summer.png"],
+                "March": ["Autumn", "autumn.png"],
+                "April": ["Autumn", "autumn.png"],
+                "May": ["Autumn", "autumn.png"],
+                "June": ["Winter", "winter.png"],
+                "July": ["Winter", "winter.png"],
+                "August": ["Winter", "winter.png"],
+                "September": ["Spring", "spring.png"],
+                "October": ["Spring", "spring.png"],
+                "November": ["Spring", "spring.png"],
+            },
+            "N": {
+                "December": ["Birak", "birak.png"],
+                "January": ["Birak", "birak.png"],
+                "February": ["Bunuru", "bunuru.png"],
+                "March": ["Bunuru", "bunuru.png"],
+                "April": ["Djeran", "djeran.png"],
+                "May": ["Djeran", "djeran.png"],
+                "June": ["Makuru", "makuru.png"],
+                "July": ["Makuru", "makuru.png"],
+                "August": ["Dijiba", "djilba.png"],
+                "September": ["Dijiba", "djilba.png"],
+                "October": ["Kambarang", "kambarang.png"],
+                "November": ["Kambarang", "kambarang.png"],
+            }
+        },
+        "Spain": {
+                "December": ["Winter", "winter.png"],
+                "January": ["Winter", "winter.png"],
+                "February": ["Winter", "winter.png"],
+                "March": ["Spring", "spring.png"],
+                "April": ["Spring", "spring.png"],
+                "May": ["Spring", "spring.png"],
+                "June": ["Summer", "summer.png"],
+                "July": ["Summer", "summer.png"],
+                "August": ["Summer", "summer.png"],
+                "September": ["Autumn", "autumn.png"],
+                "October": ["Autumn", "autumn.png"],
+                "November": ["Autumn", "autumn.png"],
+            },
+        "Japan": {
+                "December": ["Winter", "winter.png"],
+                "January": ["Winter", "winter.png"],
+                "February": ["Winter", "winter.png"],
+                "March": ["Spring", "spring.png"],
+                "April": ["Spring", "spring.png"],
+                "May": ["Spring", "spring.png"],
+                "June": ["Summer", "summer.png"],
+                "July": ["Summer", "summer.png"],
+                "August": ["Summer", "summer.png"],
+                "September": ["Autumn", "autumn.png"],
+                "October": ["Autumn", "autumn.png"],
+                "November": ["Autumn", "autumn.png"],
+            },
+        "Mauritius": {
+                "May": ["Autumn", "autumn.png"],
+                "June": ["Winter", "winter.png"],
+                "July": ["Winter", "winter.png"],
+                "August": ["Winter", "winter.png"],
+                "September": ["Winter", "winter.png"],
+                "October": ["Spring", "spring.png"],
+                "November": ["Spring", "spring.png"],
+                "December": ["Summer", "summer.png"],
+                "January": ["Summer", "summer.png"],
+                "February": ["Summer", "summer.png"],
+                "March": ["Summer", "summer.png"],
+                "April": ["Summer", "summer.png"],
+            },
+        "Malaysia": {
+                "December": ("Northeast Monsoon", "monsoon.png"),
+                "January": ("Northeast Monsoon", "monsoon.png"),
+                "February": ("Northeast Monsoon", "monsoon.png"),
+                "May": ("Southeast Monsoon", "monsoon.png"),
+                "September": ("Southeast Monsoon", "monsoon.png"),
+                "March": ("Inter-monsoon", "inter-monsoon.png"),
+                "April": ("Inter-monsoon", "inter-monsoon.png"),
+                "June": ("Inter-monsoon", "inter-monsoon.png"),
+                "July": ("Inter-monsoon", "inter-monsoon.png"),
+                "August": ("Inter-monsoon", "inter-monsoon.png"),
+                "October": ("Inter-monsoon", "inter-monsoon.png"),
+                "November": ("Inter-monsoon", "inter-monsoon.png"),
+            },
+        "Sri Lanka": {
+                "December": ("Northeast Monsoon", "monsoon.png"),
+                "January": ("Northeast Monsoon", "monsoon.png"),
+                "February": ("Northeast Monsoon", "monsoon.png"),
+                "May": ("Southeast Monsoon", "monsoon.png"),
+                "September": ("Southeast Monsoon", "monsoon.png"),
+                "March": ("Inter-monsoon", "inter-monsoon.png"),
+                "April": ("Inter-monsoon", "inter-monsoon.png"),
+                "June": ("Inter-monsoon", "inter-monsoon.png"),
+                "July": ("Inter-monsoon", "inter-monsoon.png"),
+                "August": ("Inter-monsoon", "inter-monsoon.png"),
+                "October": ("Inter-monsoon", "inter-monsoon.png"),
+                "November": ("Inter-monsoon", "inter-monsoon.png"),
+            }
+        }
             
-    elif country in ["Spain", "Japan"]:
-        if month in ["December", "January", "February"]:
-            season = "Winter"
-            image = img.imread("winter.png")
-            plt.imshow(image)
-        elif month in ["March", "April", "May"]:
-            season = "Spring"
-            image = img.imread("spring.png")
-            plt.imshow(image)
-        elif month in ["June", "July", "August"]:
-            season = "Summer"
-            image = img.imread("summer.png")
-            plt.imshow(image)
-        else:
-            season = "Autumn"
-            image = img.imread("autumn.png")
-            plt.imshow(image)
-
-    elif country == "Mauritius":
-        if month == "May":
-            season = "Autumn"
-            image = img.imread("autumn.png")
-            plt.imshow(image)
-        elif month in ["June", "July", "August", "September"]:
-            season = "Winter"
-            image = img.imread("winter.png")
-            plt.imshow(image)
-        elif month == "October":
-            season = "Spring"
-            image = img.imread("spring.png")
-            plt.imshow(image)
-        else:
-            season = "Summer"
-            image = img.imread("summer.png")
-            plt.imshow(image)
-
-    elif country in ["Malaysia", "Sri Lanka"]:
-        if month in ["December", "January", "February"]:
-            season = "Northeast Monsoon"
-            image = img.imread("monsoon.png")
-            plt.imshow(image)
-        elif month in ["May", "September"]:
-            season = "Southeast Monsoon"
-            image = img.imread("monsoon.png")
-            plt.imshow(image)
-        else:
-            season = "Inter-monsoon"
-            image = img.imread("inter-monsoon.png")
-            plt.imshow(image)
     
     print(f"\nDuring {month} in {country} the season is {season}.")
     plt.axis('off')
