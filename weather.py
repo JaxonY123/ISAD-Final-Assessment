@@ -11,6 +11,13 @@ def inputCheck(message, options):
             return inputted
         print("Invalid selection. Please enter a valid option.")
 
+def timeCheck(message, options):
+    while True:
+        inputted = input(message)
+        if inputted in options:
+            return inputted
+        print("Invalid selection. Please enter a valid time.")
+
 def getSeason(country, month):
     """
     Displays the name and an image of the season in a given country during
@@ -184,7 +191,7 @@ if __name__ == "__main__":
         print("\n======================================================================\n")
 
         city = inputCheck("Select a city from the list above: ", cities)
-        
+        time = timeCheck("Select a time (9am or 3pm): ", times) 
 
 
     
