@@ -4,6 +4,13 @@
 import matplotlib.pyplot as plt
 import matplotlib.image as img
 
+def inputCheck(message, options):
+    while True:
+        inputted = input(message).title()
+        if inputted in options:
+            return inputted
+        print("Invalid selection. Please enter a valid option.")
+
 def getSeason(country, month):
     """
     Displays the name and an image of the season in a given country during
@@ -134,15 +141,9 @@ if __name__ == "__main__":
     print("\n====================== SEASON FINDER =======================\n")
     print("Australia | Spain | Japan | Mauritius | Malaysia | Sri Lanka")
     print("\n============================================================\n")
-    country = input("Select a country from the list above: ").title()
-    while country not in countries:
-        country = input("\nInvalid Selection. Please select a country from the list above: ").title()
-    
-    # Select month, displays list of months if invalid. 
-    month = input("Enter a month: ").title()
-    while month not in months:
-        print("\nJanuary | February | March | April | May | June | July \n August | September | October | November | December\n")
-        month = input("Invalid Selection. Please select a month from the list above: ").title()
+   
+    country = inputCheck("Select a country from the list above: ", countries) 
+    month = inputCheck("Enter a month: ", months)
     
     if country == "Australia":
         variation = input("Would you like the Meteorological season or the Noongar season? (M/N): ").upper()
