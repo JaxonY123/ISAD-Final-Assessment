@@ -176,7 +176,7 @@ def findTemp(city,time,temp):
                 }
             }
     avgTemp = avgTemps[city][time]
-    tempDiff = temp - avgTemp
+    tempDiff = round(temp - avgTemp, 2)
 
     if temp < avgTemp:
         word = "below"
