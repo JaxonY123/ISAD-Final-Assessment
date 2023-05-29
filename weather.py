@@ -26,13 +26,13 @@ def timeCheck(message, options):
             return inputted
         print("Invalid selection. Please enter a valid time.")
 
-def tempCheck(temp):
+def tempCheck(message):
     """
     Checks if user input for temperature is a valid number.
     If not, user is prompted to enter a valid number.
     """
     while True:
-        inputted = input(temp)
+        inputted = input(message)
         try:
             temperature = float(inputted)
             return temperature
@@ -123,6 +123,7 @@ def getSeason(country, month):
     print(f"\nDuring {month} in {country} the season is {season}.")
     plt.axis('off')
     plt.show()
+    return season
 
 def getSeasonAU(country,month,variation):
     seasonDict = {
@@ -162,6 +163,7 @@ def getSeasonAU(country,month,variation):
     print(f"\nDuring {month} in {country} the season is {season}.")
     plt.axis('off')
     plt.show()
+    return season
 
         
 
