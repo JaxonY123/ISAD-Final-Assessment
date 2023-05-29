@@ -234,7 +234,7 @@ if __name__ == "__main__":
 
         city = inputCheck("Select a city from the list above: ", cities)
         time = timeCheck("Select a time (9am or 3pm): ", times) 
-        temp = tempCheck("Enter the temperature: ")
+        temp = tempCheck("Enter the temperature (°C): ")
 
         findTemp(city,time,temp)
 
