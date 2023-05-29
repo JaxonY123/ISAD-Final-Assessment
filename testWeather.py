@@ -134,6 +134,55 @@ class TestWeather(unittest.TestCase):
 
                     expectedSeason = expectedSeasons[country][month]
                     self.assertEqual(capOut.getvalue().strip(), f"During {month} in {country} the season is {expectedSeason}.")
+    
+
+    def testGetSeasonAU(self):
+        countries = ["Australia"]
+        variations = ["M", "N"]
+        months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        expectedSeasons = {
+        "Australia": {
+            "M": {
+                "December": "Summer",
+                "January": "Summer",
+                "February": "Summer",
+                "March": "Autumn",
+                "April": "Autumn",
+                "May": "Autumn",
+                "June": "Winter",
+                "July": "Winter",
+                "August": "Winter",
+                "September": "Spring",
+                "October": "Spring",
+                "November": "Spring",
+            },
+            "N": {
+                "December": "Birak",
+                "January": "Birak",
+                "February": "Bunuru",
+                "March": "Bunuru",
+                "April": "Djeran",
+                "May": "Djeran",
+                "June": "Makuru",
+                "July": "Makuru",
+                "August": "Djilba",
+                "September": "Djilba",
+                "October": "Kambarang",
+                "November": "Kambarang",
+            }
+        }}
+        for country in countries:
+            for variation in variations:
+                for month in months:
+                    with self.subTest(country=country, month=month):
+                        capOut = io.StringIO()
+                        sys.stdout = capOut
+                        season = weather.getSeasonAU(country, month, variation)
+                        sys.stdout = self.savedSTDOUT
+
+                        expectedSeason = expectedSeasons[country][variation][month]
+                        self.assertEqual(capOut.getvalue().strip(), f"During {month} in {country} the season is {expectedSeason}.")
+
 
 if __name__ == '__main__':
     unittest.main()
