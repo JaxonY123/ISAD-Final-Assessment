@@ -1,0 +1,20 @@
+### Synopsis
+ISAD1000 Final Assessment
+
+### Contents
+weather.py - contains production code for finding the season of a user inputted
+             country during a user inputted month. If the country is Australia
+             then the user also selects either Meteorological season or 
+             Noongar season.
+	     Also contains code to compare the temperature of a city at either
+             9am or 3pm with its average temperature. If the difference is more
+             than 5 degrees celsius. The exact difference is displayed.
+
+testWeather.py - contains the test code for weather.py using unittest
+
+png files - all png files are images of the seasons which
+
+JaxonYoung_21549827_ISEReport - Final Assessment Report
+
+### Last Updated
+29/05/2023
