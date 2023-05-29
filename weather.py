@@ -192,7 +192,7 @@ def findTemp(city,time,temp):
         word = "above"
 
     if abs(tempDiff) > 5:
-        print(f"\nThe temperature in {city} at {time} is {abs(tempDiff)} {word} the average temperature ({avgTemp}°C).")
+        print(f"\nThe temperature in {city} at {time} is {abs(tempDiff)}°C {word} the average temperature ({avgTemp}°C).")
     elif 0 < abs(tempDiff) < 5:
         print(f"\nThe temperature in {city} at {time} is {word} the average temperature ({avgTemp}°C).")
     else:
