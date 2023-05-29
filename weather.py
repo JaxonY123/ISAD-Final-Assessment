@@ -26,13 +26,13 @@ def timeCheck(message, options):
             return inputted
         print("Invalid selection. Please enter a valid time.")
 
-def tempCheck(temp):
+def tempCheck(message):
     """
     Checks if user input for temperature is a valid number.
     If not, user is prompted to enter a valid number.
     """
     while True:
-        inputted = input(temp)
+        inputted = input(message)
         try:
             temperature = float(inputted)
             return temperature
@@ -46,36 +46,6 @@ def getSeason(country, month):
     If the country is Australia, either the meteorological or Noongar season is displayed based on user input. 
     """
     seasonDict = {
-        "Australia": {
-            "M": {
-                "December": ["Summer", "summer.png"],
-                "January": ["Summer", "summer.png"],
-                "February": ["Summer", "summer.png"],
-                "March": ["Autumn", "autumn.png"],
-                "April": ["Autumn", "autumn.png"],
-                "May": ["Autumn", "autumn.png"],
-                "June": ["Winter", "winter.png"],
-                "July": ["Winter", "winter.png"],
-                "August": ["Winter", "winter.png"],
-                "September": ["Spring", "spring.png"],
-                "October": ["Spring", "spring.png"],
-                "November": ["Spring", "spring.png"],
-            },
-            "N": {
-                "December": ["Birak", "birak.png"],
-                "January": ["Birak", "birak.png"],
-                "February": ["Bunuru", "bunuru.png"],
-                "March": ["Bunuru", "bunuru.png"],
-                "April": ["Djeran", "djeran.png"],
-                "May": ["Djeran", "djeran.png"],
-                "June": ["Makuru", "makuru.png"],
-                "July": ["Makuru", "makuru.png"],
-                "August": ["Dijiba", "djilba.png"],
-                "September": ["Dijiba", "djilba.png"],
-                "October": ["Kambarang", "kambarang.png"],
-                "November": ["Kambarang", "kambarang.png"],
-            }
-        },
         "Spain": {
                 "December": ["Winter", "winter.png"],
                 "January": ["Winter", "winter.png"],
@@ -119,45 +89,83 @@ def getSeason(country, month):
                 "April": ["Summer", "summer.png"],
             },
         "Malaysia": {
-                "December": ("Northeast Monsoon", "monsoon.png"),
-                "January": ("Northeast Monsoon", "monsoon.png"),
-                "February": ("Northeast Monsoon", "monsoon.png"),
-                "May": ("Southeast Monsoon", "monsoon.png"),
-                "September": ("Southeast Monsoon", "monsoon.png"),
-                "March": ("Inter-monsoon", "inter-monsoon.png"),
-                "April": ("Inter-monsoon", "inter-monsoon.png"),
-                "June": ("Inter-monsoon", "inter-monsoon.png"),
-                "July": ("Inter-monsoon", "inter-monsoon.png"),
-                "August": ("Inter-monsoon", "inter-monsoon.png"),
-                "October": ("Inter-monsoon", "inter-monsoon.png"),
-                "November": ("Inter-monsoon", "inter-monsoon.png"),
+                "December": ["Northeast Monsoon", "monsoon.png"],
+                "January": ["Northeast Monsoon", "monsoon.png"],
+                "February": ["Northeast Monsoon", "monsoon.png"],
+                "May": ["Southeast Monsoon", "monsoon.png"],
+                "September": ["Southeast Monsoon", "monsoon.png"],
+                "March": ["Inter-monsoon", "inter-monsoon.png"],
+                "April": ["Inter-monsoon", "inter-monsoon.png"],
+                "June": ["Inter-monsoon", "inter-monsoon.png"],
+                "July": ["Inter-monsoon", "inter-monsoon.png"],
+                "August": ["Inter-monsoon", "inter-monsoon.png"],
+                "October": ["Inter-monsoon", "inter-monsoon.png"],
+                "November": ["Inter-monsoon", "inter-monsoon.png"],
             },
         "Sri Lanka": {
-                "December": ("Northeast Monsoon", "monsoon.png"),
-                "January": ("Northeast Monsoon", "monsoon.png"),
-                "February": ("Northeast Monsoon", "monsoon.png"),
-                "May": ("Southeast Monsoon", "monsoon.png"),
-                "September": ("Southeast Monsoon", "monsoon.png"),
-                "March": ("Inter-monsoon", "inter-monsoon.png"),
-                "April": ("Inter-monsoon", "inter-monsoon.png"),
-                "June": ("Inter-monsoon", "inter-monsoon.png"),
-                "July": ("Inter-monsoon", "inter-monsoon.png"),
-                "August": ("Inter-monsoon", "inter-monsoon.png"),
-                "October": ("Inter-monsoon", "inter-monsoon.png"),
-                "November": ("Inter-monsoon", "inter-monsoon.png"),
+                "December": ["Northeast Monsoon", "monsoon.png"],
+                "January": ["Northeast Monsoon", "monsoon.png"],
+                "February": ["Northeast Monsoon", "monsoon.png"],
+                "May": ["Southeast Monsoon", "monsoon.png"],
+                "September": ["Southeast Monsoon", "monsoon.png"],
+                "March": ["Inter-monsoon", "inter-monsoon.png"],
+                "April": ["Inter-monsoon", "inter-monsoon.png"],
+                "June": ["Inter-monsoon", "inter-monsoon.png"],
+                "July": ["Inter-monsoon", "inter-monsoon.png"],
+                "August": ["Inter-monsoon", "inter-monsoon.png"],
+                "October": ["Inter-monsoon", "inter-monsoon.png"],
+                "November": ["Inter-monsoon", "inter-monsoon.png"],
             }
         }
-    if country == "Australia":
-        variation = inputCheck("Would you like the Meteorological season or the Noongar season? (M/N): ", ["M", "N"])
-        season, image = seasonDict[country][variation].get(month)
-    else:
-        season, image = seasonDict[country].get(month)
-
+    season, image = seasonDict[country].get(month)
     image = img.imread(image)
     plt.imshow(image)
     print(f"\nDuring {month} in {country} the season is {season}.")
     plt.axis('off')
     plt.show()
+    return season
+
+def getSeasonAU(country,month,variation):
+    seasonDict = {
+        "Australia": {
+            "M": {
+                "December": ["Summer", "summer.png"],
+                "January": ["Summer", "summer.png"],
+                "February": ["Summer", "summer.png"],
+                "March": ["Autumn", "autumn.png"],
+                "April": ["Autumn", "autumn.png"],
+                "May": ["Autumn", "autumn.png"],
+                "June": ["Winter", "winter.png"],
+                "July": ["Winter", "winter.png"],
+                "August": ["Winter", "winter.png"],
+                "September": ["Spring", "spring.png"],
+                "October": ["Spring", "spring.png"],
+                "November": ["Spring", "spring.png"],
+        },
+            "N": {
+                "December": ["Birak", "birak.png"],
+                "January": ["Birak", "birak.png"],
+                "February": ["Bunuru", "bunuru.png"],
+                "March": ["Bunuru", "bunuru.png"],
+                "April": ["Djeran", "djeran.png"],
+                "May": ["Djeran", "djeran.png"],
+                "June": ["Makuru", "makuru.png"],
+                "July": ["Makuru", "makuru.png"],
+                "August": ["Djilba", "djilba.png"],
+                "September": ["Djilba", "djilba.png"],
+                "October": ["Kambarang", "kambarang.png"],
+                "November": ["Kambarang", "kambarang.png"],
+            }
+        }}
+    season, image = seasonDict[country][variation].get(month)
+    image = img.imread(image)
+    plt.imshow(image)
+    print(f"\nDuring {month} in {country} the season is {season}.")
+    plt.axis('off')
+    plt.show()
+    return season
+
+        
 
 def findTemp(city,time,temp):
     """
@@ -176,7 +184,7 @@ def findTemp(city,time,temp):
                 }
             }
     avgTemp = avgTemps[city][time]
-    tempDiff = temp - avgTemp
+    tempDiff = round(temp - avgTemp, 2)
 
     if temp < avgTemp:
         word = "below"
@@ -189,6 +197,8 @@ def findTemp(city,time,temp):
         print(f"\nThe temperature in {city} at {time} is {word} the average temperature ({avgTemp}°C).")
     else:
         print(f"\nThe temperature in {city} at {time} is equal to the average temperature ({avgTemp}°C).")
+
+
 
 
 if __name__ == "__main__":
@@ -207,8 +217,12 @@ if __name__ == "__main__":
    
         country = inputCheck("Select a country from the list above: ", countries) 
         month = inputCheck("Enter a month: ", months) 
-    
-        getSeason(country, month)
+        
+        if country == "Australia":
+            variation = inputCheck("Would you like the Meteorological season or the Noongar season? (M/N): ", ["M", "N"])
+            getSeasonAU(country, month, variation)
+        else:
+            getSeason(country, month)
     
     elif choice == "T":
         cities = ["Perth", "Adelaide"]
